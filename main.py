@@ -644,6 +644,7 @@ async def on_ready():
     save_chatstandby()
     print(slots_data)
     print(f"✅ Bot siap: {bot.user}")
+    bot.loop.create_task(keep_alive())
     reset_daily.start()
     
     
@@ -859,7 +860,5 @@ async def keep_alive():
     while True:
         print("Bot masih hidup...")
         await asyncio.sleep(300)  # tiap 5 menit
-
-bot.loop.create_task(keep_alive())
 
 bot.run(TOKEN, reconnect=True)
