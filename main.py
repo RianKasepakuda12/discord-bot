@@ -4,6 +4,7 @@ from discord import app_commands
 import os
 import json
 from datetime import datetime
+import asyncio
 
 TOKEN = os.environ.get("DISCORD_BOT_TOKEN")
 CATEGORY_ID = 1460318893120815216
@@ -853,5 +854,12 @@ async def chatstanby(
         f"✅ Chat standby aktif di {target.mention}",
         ephemeral=True
     )
-    
-bot.run(TOKEN)
+
+async def keep_alive():
+    while True:
+        print("Bot masih hidup...")
+        await asyncio.sleep(300)  # tiap 5 menit
+
+bot.loop.create_task(keep_alive())
+
+bot.run(TOKEN, reconnect=True)
