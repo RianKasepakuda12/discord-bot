@@ -1,0 +1,18 @@
+{
+  "name": "fortunews-server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.8",
+    "express": "^4.21.0",
+    "cors": "^2.8.5",
+    "ws": "^8.18.0",
+    "pino": "^9.4.0",
+    "pino-pretty": "^11.2.2",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
